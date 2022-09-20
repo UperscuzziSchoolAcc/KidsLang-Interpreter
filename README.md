@@ -16,6 +16,10 @@ end
 -- hello
 ```
 ###### 2 dashes create a single line comment, there are no multiline comments as of writing this.
+```
+make foo 64
+```
+###### the keyword make lets you declare a variable, this makes a variable named foo have the value of 64.
 
 ------------
 ###### As of now, the only way to open a file is to name it myCode.kl, and opening the .py file in the same directory. I plan to make it just a double click, to make it easier.
