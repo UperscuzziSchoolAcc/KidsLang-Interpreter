@@ -1,2 +1,21 @@
-# KidsLang-Interpreter
-A coding language I made to help my friends understand how coding works. This coding language is extremely easy, it is made for children, let your kid try it!
+# KidsLang Interpreter
+###### I created this as something to do in my spare time, and something to teach the children about code. This is definitely NOT Turing Complete. At least, not yet, but I dont plan to make it that way. 
+------------
+### Syntax
+```
+say hello
+```
+###### This will print hello, notice how quotes are not needed as everything is a string.
+```
+repeat 10
+	say hello
+end
+```
+###### This will print hello, 10 times
+```
+-- hello
+```
+###### 2 dashes create a single line comment, there are no multiline comments as of writing this.
+
+------------
+###### As of now, the only way to open a file is to name it myCode.kl, and opening the .py file in the same directory. I plan to make it just a double click, to make it easier.
