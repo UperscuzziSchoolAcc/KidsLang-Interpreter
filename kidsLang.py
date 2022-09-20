@@ -1,11 +1,13 @@
 """
-KidsLang Interpreter, made by Greyson Rowland
+KidsLang Interpreter, made by Greyson Rowland (2022)
 """
+f = open("myCode.kl")
+lines = f.readlines()
 i = 0
+variables = {}
 def incrementI(n):
     global i
     i += int(n)
-f = open("myCode.kl")
 def ifPartInString(part, string):
     for i in range(len(string)):
         if string[i: len(part)] == part:
@@ -14,7 +16,8 @@ def ifPartInString(part, string):
 def sayStringWithout(part, string):
     if ifPartInString(part, string):
         return string[len(part):len(string)]
-lines = f.readlines()
+def getWord(word, string):
+    return string.split()[word - 1]
 def getRepeatLines(line):
     a = []
     iter = 1
@@ -25,11 +28,20 @@ def getRepeatLines(line):
         if iter == len(lines):
             return "error"
     return a
-
+def convertVariables(command):
+    if len(variables) != 0:
+        spread = command.split()
+        for a in range(len(spread)):
+            for b in range(len(variables)):
+                if list(variables.keys())[b] == spread[a]:
+                    spread[a] = variables[spread[a]]
+        return " ".join(spread)
+    else:
+        return command
 def execute(command, loop, exec):
-    #print("before:", command)
     command = command.strip()
-    #print("after:", command)
+    if command.strip()[0] != "make":
+        command = convertVariables(command)
     if command[0:4] == "say ":
         if exec == True:
             print(sayStringWithout("say ", command))
@@ -44,6 +56,11 @@ def execute(command, loop, exec):
         pass
     elif command[0:2] == "--":
         pass
+    elif command[0:5] == "make ":
+        if exec == True:
+            varName = getWord(2, command)
+            varValue = command[5 + len(varName) + 1:len(command)]
+            variables[str(varName)] = varValue
     else:
         print("Error on line " + str(loop + 1) + ", did you spell something wrong?")
         return "error"
