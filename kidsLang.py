@@ -1,6 +1,7 @@
 """
 KidsLang Interpreter, made by Greyson Rowland (2022)
 """
+import time
 f = open("myCode.kl")
 lines = f.readlines()
 i = 0
@@ -61,6 +62,9 @@ def execute(command, loop, exec):
             varName = getWord(2, command)
             varValue = command[5 + len(varName) + 1:len(command)]
             variables[str(varName)] = varValue
+    elif command[0:5] == "wait ":
+        sl = command.split()[1]
+        time.sleep(int(sl))
     else:
         print("Error on line " + str(loop + 1) + ", did you spell something wrong?")
         return "error"
