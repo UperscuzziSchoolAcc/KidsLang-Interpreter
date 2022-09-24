@@ -25,6 +25,7 @@ make foo 64
 wait 5
 ```
 ###### We have 4 basic arithmetic operators, using + - * /.
+###### (You must separate ANY operators with a space or they wont work. This is *definitely* a feature and not a fundamental design flaw or anything.)
 ```
 say 1 + 1
 say 5 - 3
