@@ -24,5 +24,12 @@ make foo 64
 ```
 wait 5
 ```
+###### We have 4 basic arithmetic operators, using + - * /.
+```
+say 1 + 1
+say 5 - 3
+say 6 * 2
+say 9 / 3
+```
 ------------
 ###### As of now, the only way to open a file is to name it myCode.kl, and opening the .py file in the same directory. I plan to make it just a double click, to make it easier.
