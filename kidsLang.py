@@ -56,6 +56,12 @@ def computeOperations(command):
                 locLoop = 0
             except:
                 throwError("You can't divide a letter with a number.")
+        if op == "..":
+            ta = str(spl[locLoop - 1]) + str(spl[locLoop + 1])
+            spl[locLoop - 1] = ta
+            spl.pop(locLoop)
+            spl.pop(locLoop)
+            locLoop = 0
         locLoop += 1
     return " ".join(spl)
 
