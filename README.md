@@ -42,5 +42,11 @@ say baz .. foo
 ```
 say goodbye __ camelCase standardization
 ```
+###### There are 4 boolean operators, these will be turned into the strings "True" or "False". They are =, !=, <, >
+```
+make foo 18
+make baz 16
+say foo > baz
+```
 ------------
 ###### As of now, the only way to open a file is to name it myCode.kl, and opening the .py file in the same directory. I plan to make it just a double click, to make it easier.
