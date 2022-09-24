@@ -9,7 +9,7 @@ say hello
 ###### This will print hello, 10 times
 ```
 repeat 10
-	say hello
+    say hello
 end
 ```
 ###### 2 dashes create a single line comment, there are no multiline comments as of writing this.
@@ -31,6 +31,16 @@ say 1 + 1
 say 5 - 3
 say 6 * 2
 say 9 / 3
+```
+###### You can also concatenate with the ".." operator
+```
+make baz kids
+make foo Lang
+say baz .. foo
+```
+###### Whitespaces are usually removed from the end (and beginning) of lines when being processed, so if you want to concatenate with a space use "__"
+```
+say goodbye __ camelCase standardization
 ```
 ------------
 ###### As of now, the only way to open a file is to name it myCode.kl, and opening the .py file in the same directory. I plan to make it just a double click, to make it easier.
