@@ -62,6 +62,12 @@ def computeOperations(command):
             spl.pop(locLoop)
             spl.pop(locLoop)
             locLoop = 0
+        if op == "__":
+            ta = str(spl[locLoop - 1]) + " " + str(spl[locLoop + 1])
+            spl[locLoop - 1] = ta
+            spl.pop(locLoop)
+            spl.pop(locLoop)
+            locLoop = 0
         locLoop += 1
     return " ".join(spl)
 
