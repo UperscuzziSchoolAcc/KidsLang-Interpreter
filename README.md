@@ -48,5 +48,9 @@ make foo 18
 make baz 16
 say foo > baz
 ```
+###### If you want to print an operator by itself, add a "/" behind it
+```
+say What is 1 /+ 1?
+```
 ------------
 ###### As of now, the only way to open a file is to name it myCode.kl, and opening the .py file in the same directory. I plan to make it just a double click, to make it easier.
