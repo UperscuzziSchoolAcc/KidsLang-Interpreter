@@ -8,7 +8,7 @@ error = False
 mainLoop = 0
 f = open("myCode.kl")
 lines = f.readlines()
-variables = {}
+variables = {"answer": "there is no answer yet"}
 
 def throwError(statement):
     global error
@@ -145,6 +145,8 @@ def convertVariables(command):
     for i in range(len(a)):
         if variables.get(a[i]) != None:
             a[i] = variables.get(a[i])
+        elif a[i][1:len(a[i])] in variables.keys() != None and a[i][0] == "/":
+            a[i] = a[i][1:len(a[i])]
     return " ".join(a)
 
 def execute(command, loop, run):
@@ -176,7 +178,13 @@ def execute(command, loop, run):
                     execute(toRep[b], loop, True)
     elif s[0] == "wait":
         if run == True:
-            time.wait(int(s[1]))
+            try:
+                time.sleep(int(ss[1]))
+            except:
+                throwError("You cannot wait with a letter!")
+    elif s[0] == "ask":
+        if run == True:
+            variables["answer"] = input("".join(s[1:len(s)]) + " ")
     else:
          return "error"   
 
@@ -185,6 +193,7 @@ while mainLoop < len(lines):
         break
     command = lines[mainLoop]
     if execute(command, mainLoop, False):
+        print("Error on line " + str(mainLoop + 1) + ", did you spell something wrong?")
         break
     execute(command, mainLoop, True)
     mainLoop += 1
