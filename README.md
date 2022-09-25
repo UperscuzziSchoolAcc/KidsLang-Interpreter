@@ -52,5 +52,15 @@ say foo > baz
 ```
 say What is 1 /+ 1?
 ```
+###### If you want to print the name of a variable, add a "/" to the beginning of it.
+```
+make baz 15
+say /baz
+```
+###### You can use user inputs with the "ask" command, the answer will be recorded to a variable named "answer".
+```
+ask What is your name?
+say Hi, __ answer .. !
+```
 ------------
 ###### As of now, the only way to open a file is to name it myCode.kl, and opening the .py file in the same directory. I plan to make it just a double click, to make it easier.
