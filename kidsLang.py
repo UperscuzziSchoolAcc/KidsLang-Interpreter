@@ -26,7 +26,7 @@ def computeOperations(command):
                 spl[locLoop - 1] = ta
                 spl.pop(locLoop)
                 spl.pop(locLoop)
-                locLoop = 0
+                locLoop -= 1
             except:
                 throwError("You can't add a letter with a number.")
         if op == "-":
@@ -35,7 +35,7 @@ def computeOperations(command):
                 spl[locLoop - 1] = ta
                 spl.pop(locLoop)
                 spl.pop(locLoop)
-                locLoop = 0
+                locLoop -= 1
             except:
                 throwError("You can't subtract a letter with a number.")
         if op == "*":
@@ -44,7 +44,7 @@ def computeOperations(command):
                 spl[locLoop - 1] = ta
                 spl.pop(locLoop)
                 spl.pop(locLoop)
-                locLoop = 0
+                locLoop -= 1
             except:
                 throwError("You can't multiply a letter with a number.")
         if op == "/":
@@ -53,7 +53,7 @@ def computeOperations(command):
                 spl[locLoop - 1] = ta
                 spl.pop(locLoop)
                 spl.pop(locLoop)
-                locLoop = 0
+                locLoop -= 1
             except:
                 throwError("You can't divide a letter with a number.")
         if op == "..":
@@ -61,13 +61,13 @@ def computeOperations(command):
             spl[locLoop - 1] = ta
             spl.pop(locLoop)
             spl.pop(locLoop)
-            locLoop = 0
+            locLoop -= 1
         if op == "__":
             ta = str(spl[locLoop - 1]) + " " + str(spl[locLoop + 1])
             spl[locLoop - 1] = ta
             spl.pop(locLoop)
             spl.pop(locLoop)
-            locLoop = 0
+            locLoop -= 1
         if op == "=":
             if str(spl[locLoop - 1]) == str(spl[locLoop + 1]):
                 spl[locLoop - 1] = "True"
@@ -75,7 +75,7 @@ def computeOperations(command):
                 spl[locLoop - 1] = "False"
             spl.pop(locLoop)
             spl.pop(locLoop)
-            locLoop = 0
+            locLoop -= 1
         if op == "!=":
             if str(spl[locLoop - 1]) != str(spl[locLoop + 1]):
                 spl[locLoop - 1] = "True"
@@ -83,7 +83,7 @@ def computeOperations(command):
                 spl[locLoop - 1] = "False"
             spl.pop(locLoop)
             spl.pop(locLoop)
-            locLoop = 0
+            locLoop -= 1
         if op == ">":
             try:
                 if int(spl[locLoop - 1]) > int(spl[locLoop + 1]):
@@ -92,7 +92,7 @@ def computeOperations(command):
                     spl[locLoop - 1] = "False"
                 spl.pop(locLoop)
                 spl.pop(locLoop)
-                locLoop = 0
+                locLoop -= 1
             except:
                 throwError("You cant use that operator on a letter and a number")
         if op == "<":
@@ -103,9 +103,29 @@ def computeOperations(command):
                     spl[locLoop - 1] = "False"
                 spl.pop(locLoop)
                 spl.pop(locLoop)
-                locLoop = 0
+                locLoop -= 1
             except:
                 throwError("You cant use that operator on a letter and a number")
+        if op == "/+":
+            spl[locLoop] = "+"
+        if op == "/-":
+            spl[locLoop] = "-"
+        if op == "/*":
+            spl[locLoop] = "*"
+        if op == "//":
+            spl[locLoop] = "/"
+        if op == "/..":
+            spl[locLoop] = ".."
+        if op == "/__":
+            spl[locLoop] = "__"
+        if op == "/=":
+            spl[locLoop] = "="
+        if op == "/!=":
+            spl[locLoop] = "!="
+        if op == "/>":
+            spl[locLoop] = ">"
+        if op == "!<":
+            spl[locLoop] = "<"
         locLoop += 1
     return " ".join(spl)
 
@@ -159,8 +179,7 @@ def execute(command, loop, run):
             time.wait(int(s[1]))
     else:
          return "error"   
-    
-        
+
 while mainLoop < len(lines):
     if error:
         break
