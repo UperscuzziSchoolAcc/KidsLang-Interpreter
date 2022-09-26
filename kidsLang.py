@@ -124,7 +124,7 @@ def computeOperations(command):
             spl[locLoop] = "!="
         if op == "/>":
             spl[locLoop] = ">"
-        if op == "!<":
+        if op == "/<":
             spl[locLoop] = "<"
         locLoop += 1
     return " ".join(spl)
