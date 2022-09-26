@@ -1,0 +1,9 @@
+make prev 0
+make curr 1
+make temp 0
+repeat 100
+    make temp curr
+    make curr prev + curr
+    make prev temp
+    say curr
+end
