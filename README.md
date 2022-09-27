@@ -24,13 +24,14 @@ make foo 64
 ```
 wait 5
 ```
-###### This have 4 basic arithmetic operators, using + - * /.
+###### This have 5 basic arithmetic operators, using + - * / ^.
 ###### (You must separate ANY operators with a space or they wont work. This is *definitely* a feature and not a fundamental design flaw or anything.)
 ```
 say 1 + 1
 say 5 - 3
 say 6 * 2
 say 9 / 3
+say 2 ^ 8
 ```
 ###### You can also concatenate with the ".." operator
 ```
@@ -47,6 +48,16 @@ say goodbye __ camelCase standardization
 make foo 18
 make baz 16
 say foo > baz
+```
+###### You can use the above boolean operators to activate if loops
+```
+make foo 15
+make baz 10
+if foo > baz
+    say foo is greater than baz
+end
+-- You can also just use the words "True" or "False" and even "Yes" or "No"
+-- eg: if yes, if true, if no, if false
 ```
 ###### If you want to print an operator by itself, add a "/" behind it
 ```
