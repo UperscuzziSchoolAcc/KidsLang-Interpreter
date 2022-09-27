@@ -1,0 +1,8 @@
+ask What is the length of side one?
+make side1 answer
+ask What is the length of side two?
+make side2 answer
+make side1 side1 ^ 2
+make side2 side2 ^ 2
+make combine side1 + side2 ^ .5
+say The length of the side three is combine
